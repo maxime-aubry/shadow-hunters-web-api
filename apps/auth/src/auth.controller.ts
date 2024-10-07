@@ -8,8 +8,8 @@ export class AuthController {
   constructor(@Inject(MessageQueueService) private readonly messageQueueService: IMessageQueueService) {}
 
   @MessagePattern({ cmd: 'get-user' })
-  async getUser(@Ctx() context: RmqContext): Promise<string> {
+  getUser(@Ctx() context: RmqContext): string {
     this.messageQueueService.acknowledgeMessage(context);
-    return await 'maxime.aubry.76@gmail.com';
+    return 'maxime.aubry.76@gmail.com';
   }
 }
