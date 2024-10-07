@@ -10,6 +10,6 @@ export class AuthController {
   @MessagePattern({ cmd: 'get-user' })
   getUser(@Ctx() context: RmqContext): string {
     this.messageQueueService.acknowledgeMessage(context);
-    return 'maxime.aubry.76@gmail.com';
+    return 'test';
   }
 }
