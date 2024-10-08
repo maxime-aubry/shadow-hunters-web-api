@@ -25,6 +25,7 @@ class GlobalException implements IError {
 @Catch()
 export class AllExceptionFilter implements ExceptionFilter {
   constructor(private readonly logger: ILoggerService) {}
+
   catch(exception: any, host: ArgumentsHost) {
     const context: HttpArgumentsHost = host.switchToHttp();
     const response: Response = context.getResponse();

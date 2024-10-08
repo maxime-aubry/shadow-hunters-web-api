@@ -7,7 +7,7 @@ export class ApiController {
   constructor(@Inject('AUTH_SERVICE') private readonly authService: ClientProxy) {}
 
   @Get('getUser')
-  getUser(): Observable<any> {
+  public getUser(): Observable<any> {
     return this.authService.send(
       {
         cmd: 'get-user',
