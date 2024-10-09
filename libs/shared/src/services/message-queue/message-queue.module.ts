@@ -1,9 +1,9 @@
 import { EnvironmentConfigModule } from '@app/shared/config/environment-config/environment-config.module';
 import { EnvironmentConfigService } from '@app/shared/config/environment-config/environment-config.service';
-import type { IMessageQueueConfiguration } from '@app/shared/config/environment-config/message-queue-config.interface';
+import type { IMessageQueueConfiguration } from '@app/shared/interfaces/config/environment-configuration/message-queue-config.service.interface';
 import { type DynamicModule, Module, type Provider } from '@nestjs/common';
 import { ClientProxyFactory, Transport } from '@nestjs/microservices';
-import { MessageQueueService } from './messageQueue.service';
+import { MessageQueueService } from './message-queue.service';
 
 @Module({
   imports: [EnvironmentConfigModule],

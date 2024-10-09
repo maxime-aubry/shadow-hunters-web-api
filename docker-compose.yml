@@ -22,7 +22,7 @@ services:
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
-    command: bun run start:dev:auth
+    command: npm run start:dev auth
   
   api:
     build:
@@ -38,8 +38,4 @@ services:
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
-    command: bun run start:dev:api
-
-networks:
-  default:
-    driver: bridge
+    command: npm run start:dev api

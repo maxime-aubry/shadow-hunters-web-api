@@ -1,10 +1,9 @@
-FROM oven/bun:latest AS base
+FROM node:latest
 
 WORKDIR /usr/src/app
 
-COPY bun.lockb .
 COPY package*.json .
 
-RUN bun install
+RUN npm install
 
 COPY . .

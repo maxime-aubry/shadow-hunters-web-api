@@ -1,6 +1,6 @@
 import { EnvironmentConfigService } from '@app/shared/config/environment-config/environment-config.service';
-import type { IMessageQueueConfiguration } from '@app/shared/config/environment-config/message-queue-config.interface';
-import type { IMessageQueueService } from '@app/shared/interfaces/services/messageQueue/messageQueue.service.interface';
+import type { IMessageQueueConfiguration } from '@app/shared/interfaces/config/environment-configuration/message-queue-config.service.interface';
+import type { IMessageQueueService } from '@app/shared/interfaces/services/messageQueue/message-queue.service.interface';
 import { Inject, Injectable } from '@nestjs/common';
 import { type RmqContext, type RmqOptions, Transport } from '@nestjs/microservices';
 

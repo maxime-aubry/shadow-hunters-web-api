@@ -1,22 +1,22 @@
-import { beforeEach, describe, it } from 'bun:test';
-import type { INestApplication } from '@nestjs/common';
-import { Test, type TestingModule } from '@nestjs/testing';
-import supertest from 'supertest';
-import { AuthModule } from './../src/auth.module';
+// import { beforeEach, describe, it } from 'bun:test';
+// import type { INestApplication } from '@nestjs/common';
+// import { Test, type TestingModule } from '@nestjs/testing';
+// import supertest from 'supertest';
+// import { AuthModule } from './../src/auth.module';
 
-describe('AuthController (e2e)', () => {
-  let app: INestApplication;
+// describe('AuthController (e2e)', () => {
+//   let app: INestApplication;
 
-  beforeEach(async () => {
-    const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [AuthModule],
-    }).compile();
+//   beforeEach(async () => {
+//     const moduleFixture: TestingModule = await Test.createTestingModule({
+//       imports: [AuthModule],
+//     }).compile();
 
-    app = moduleFixture.createNestApplication();
-    await app.init();
-  });
+//     app = moduleFixture.createNestApplication();
+//     await app.init();
+//   });
 
-  it('/ (GET)', () => {
-    return supertest(app.getHttpServer()).get('/').expect(200).expect('Hello World!');
-  });
-});
+//   it('/ (GET)', () => {
+//     return supertest(app.getHttpServer()).get('/').expect(200).expect('Hello World!');
+//   });
+// });

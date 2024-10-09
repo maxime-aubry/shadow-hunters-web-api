@@ -1,9 +1,9 @@
-import type { ILoggerService } from '@app/shared/interfaces/services/logger/logger.interface';
 import { type CallHandler, type ExecutionContext, Injectable, type NestInterceptor } from '@nestjs/common';
 import type { HttpArgumentsHost } from '@nestjs/common/interfaces';
 import type { Request } from 'express';
 import type { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import type { ILoggerService } from '../interfaces/services/logger/logger.interface';
 
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {

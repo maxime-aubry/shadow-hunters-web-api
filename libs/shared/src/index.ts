@@ -1,4 +1,5 @@
 import { EnvironmentConfigModule } from './config/environment-config/environment-config.module';
-import { MessageQueueModule } from './services/messageQueue/messageQueue.module';
+import { MicroserviceConfigModule } from './config/microservice-config/microservice-config.module';
+import { MessageQueueModule } from './services/message-queue/message-queue.module';
 
-export { EnvironmentConfigModule, MessageQueueModule };
+export { EnvironmentConfigModule, MessageQueueModule, MicroserviceConfigModule };

@@ -1,9 +1,9 @@
+import type { IEnvironmentConfiguration } from '@app/shared/interfaces/config/environment-configuration/environment-config.service.interface';
 import { Inject, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import type { IConfiguration } from './configuration.interface';
 
 @Injectable()
-export class EnvironmentConfigService implements IConfiguration {
+export class EnvironmentConfigService implements IEnvironmentConfiguration {
   constructor(@Inject(ConfigService) private configService: ConfigService) {}
 
   public getEnvironment(): string {
