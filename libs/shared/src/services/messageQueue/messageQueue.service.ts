@@ -18,9 +18,6 @@ export class MessageQueueService implements IMessageQueueService {
         queueOptions: {
           durable: true, // queue survives broker restart
         },
-        socketOptions: {
-          heartbeat: 10 // Envoyer un "heartbeat" toutes les 10 secondes
-        },
       },
     };
   }

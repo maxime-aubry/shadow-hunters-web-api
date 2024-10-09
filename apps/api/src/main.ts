@@ -7,6 +7,6 @@ async function bootstrap() {
   const app: INestApplication<any> = await NestFactory.create(ApiModule);
   configureNestJsMicroservice(app);
   app.enableCors();
-  await app.listen(3000);
+  await app.listen(5000);
 }
 bootstrap();
