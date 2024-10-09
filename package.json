@@ -6,11 +6,11 @@
   "license": "MIT",
   "scripts": {
     "start:dev": "bun start:dev:auth && bun start:dev:api",
-    "start:dev:api": "NODE_ENV=local bun --bun --watch ./apps/api/src/main.ts",
-    "start:dev:auth": "NODE_ENV=local bun --bun --watch ./apps/auth/src/main.ts",
+    "start:dev:api": "NODE_ENV=local bun --watch ./apps/api/src/main.ts",
+    "start:dev:auth": "NODE_ENV=local bun --watch ./apps/auth/src/main.ts",
     "start:prod": "bun ./apps/api/src/main.ts",
-    "test": "NODE_ENV=test bun --bun test",
-    "test:debug": "NODE_ENV=test bun --bun test --inspect --break",
+    "test": "NODE_ENV=test bun test",
+    "test:debug": "NODE_ENV=test bun test --inspect --break",
     "lint": "biome check .",
     "lint:fix": "biome check --write ."
   },
@@ -48,6 +48,9 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.3.3",
     "@types/bun": "latest"
+  },
+  "patchedDependencies": {
+    "amqplib@0.10.4": "patches/amqplib@0.10.4.patch"
   },
   "module": "index.ts",
   "type": "module"

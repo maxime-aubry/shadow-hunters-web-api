@@ -9,6 +9,7 @@ export class AuthController {
 
   @MessagePattern({ cmd: 'get-user' })
   public getUser(@Ctx() context: RmqContext): string {
+    console.log('auth:getUser');
     this.messageQueueService.acknowledgeMessage(context);
     return 'test';
   }

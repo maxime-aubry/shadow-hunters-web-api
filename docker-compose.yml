@@ -1,6 +1,6 @@
 services:
   rabbitmq:
-    image: rabbitmq:3-management-alpine
+    image: rabbitmq:3-management
     container_name: rabbitmq
     hostname: rabbitmq
     volumes:
@@ -39,3 +39,7 @@ services:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     command: bun run start:dev:api
+
+networks:
+  default:
+    driver: bridge
