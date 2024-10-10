@@ -11,10 +11,11 @@ export class ApiGatewayInitializerService implements IApiGatewayInitializerServi
   constructor(@Inject(LoggerService) private readonly loggerService: ILoggerService) {}
 
   public async initializeAsync(app: INestApplication<any>, port: number): Promise<void> {
-    this.addFilters(app);
-    this.addPipes(app);
-    this.addInterceptors(app);
+    // this.addFilters(app);
+    // this.addPipes(app);
+    // this.addInterceptors(app);
     app.enableCors();
+    // await app.startAllMicroservices();
     await app.listen(port);
   }
 

@@ -7,7 +7,7 @@ import { ApiModule } from './api.module';
 async function bootstrap() {
   const app: INestApplication<any> = await NestFactory.create(ApiModule);
   const apiGatewayInitilizer: IApiGatewayInitializerService = app.get(ApiGatewayInitializerService);
-  apiGatewayInitilizer.initializeAsync(app, 5000);
+  await apiGatewayInitilizer.initializeAsync(app, 5000);
 }
 
 bootstrap();
