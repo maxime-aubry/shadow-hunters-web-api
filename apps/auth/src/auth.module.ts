@@ -1,7 +1,8 @@
-import { EnvironmentConfigModule, MessageQueueModule, MicroserviceConfigModule } from '@app/shared';
+import { EnvironmentConfigModule } from '@app/shared';
+import { MicroserviceInitializerModule } from '@app/shared/config/microservice-initializer/microservice-initializer.module';
 import { Module } from '@nestjs/common';
 
 @Module({
-  imports: [EnvironmentConfigModule, MessageQueueModule, MicroserviceConfigModule],
+  imports: [EnvironmentConfigModule, MicroserviceInitializerModule],
 })
 export class AuthModule {}
