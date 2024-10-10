@@ -1,6 +1,5 @@
-import type { RmqContext, RmqOptions } from '@nestjs/microservices';
+import type { RmqContext } from '@nestjs/microservices';
 
 export interface IMessageQueueService {
-  getMessageQueueOptions(queue: string): RmqOptions;
   acknowledgeMessage(context: RmqContext): void;
 }

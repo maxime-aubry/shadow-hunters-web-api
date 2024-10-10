@@ -10,7 +10,7 @@ import { LoggerService } from '../../services/logger/logger.service';
 export class ApiGatewayInitializerService implements IApiGatewayInitializerService {
   constructor(@Inject(LoggerService) private readonly loggerService: ILoggerService) {}
 
-  public async initialize(app: INestApplication<any>, port: number): Promise<void> {
+  public async initializeAsync(app: INestApplication<any>, port: number): Promise<void> {
     this.addFilters(app);
     this.addPipes(app);
     this.addInterceptors(app);

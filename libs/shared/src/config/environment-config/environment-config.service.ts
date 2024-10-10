@@ -1,4 +1,4 @@
-import type { IEnvironmentConfiguration } from '@app/shared/interfaces/config/environment-configuration/environment-config.service.interface';
+import type { IEnvironmentConfiguration } from '@app/shared/interfaces/config/environment-config/environment-config.service.interface';
 import { Inject, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 

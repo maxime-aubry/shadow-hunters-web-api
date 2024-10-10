@@ -1,18 +1,35 @@
+import type { IMessageQueueConfiguration } from '@app/shared/interfaces/config/environment-config/message-queue-config.service.interface';
 import type { IMicroserviceInitializerService } from '@app/shared/interfaces/config/microservice-initializer/microservice-initializer.service.interface';
-import type { IMessageQueueService } from '@app/shared/interfaces/services/messageQueue/message-queue.service.interface';
-import { MessageQueueService } from '@app/shared/services/message-queue/message-queue.service';
-import { type INestApplication, Injectable } from '@nestjs/common';
-import type { RmqOptions } from '@nestjs/microservices';
+import { type INestApplication, Inject, Injectable } from '@nestjs/common';
+import { type RmqOptions, Transport } from '@nestjs/microservices';
+import { EnvironmentConfigService } from '../environment-config/environment-config.service';
 
 @Injectable()
 export class MicroserviceInitializerService implements IMicroserviceInitializerService {
-  public initialize(app: INestApplication<any>, queue: string): void {
+  constructor(@Inject(EnvironmentConfigService) private readonly config: IMessageQueueConfiguration) {}
+
+  public async initializeAsync(app: INestApplication<any>, queue: string): Promise<void> {
     this.addMessageQueueListener(app, queue);
+    await app.startAllMicroservices();
   }
 
   private addMessageQueueListener(app: INestApplication<any>, queue: string): void {
-    const messageQueueService: IMessageQueueService = app.get(MessageQueueService);
-    const options: RmqOptions = messageQueueService.getMessageQueueOptions(queue);
+    const options: RmqOptions = this.getOptions(queue);
     app.connectMicroservice(options);
+  }
+
+  private getOptions(queue: string): RmqOptions {
+    const options: RmqOptions = {
+      transport: Transport.RMQ,
+      options: {
+        urls: [this.config.getMessageQueueUrl()],
+        noAck: false,
+        queue,
+        queueOptions: {
+          durable: true, // queue survives broker restart
+        },
+      },
+    };
+    return options;
   }
 }
