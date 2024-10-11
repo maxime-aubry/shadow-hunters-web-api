@@ -12,7 +12,8 @@
     "formatWithErrors": false,
     "indentStyle": "space",
     "lineEnding": "lf",
-    "lineWidth": 120
+    "lineWidth": 120,
+    "attributePosition": "multiline"
   },
   "linter": {
     "enabled": true,

@@ -1,0 +1,69 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "bun",
+      "request": "launch",
+      "name": "Debug Bun to Shadow Hunters API Project",
+      "program": "${workspaceFolder}/apps/api/src/main.ts",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "NODE_ENV": "local"
+      },
+      "strictEnv": false,
+      "watchMode": false,
+      "stopOnEntry": false,
+      "noDebug": false,
+      "runtime": "bun",
+      "runtimeArgs": [
+        "--inspect=ws://localhost:6498/g22qrulsbm5"
+      ]
+    },
+    {
+      "type": "bun",
+      "request": "launch",
+      "name": "Debug Bun to Shadow Hunters Auth API Project",
+      "program": "${workspaceFolder}/apps/auth/src/main.ts",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "NODE_ENV": "local"
+      },
+      "strictEnv": false,
+      "watchMode": false,
+      "stopOnEntry": false,
+      "noDebug": false,
+      "runtime": "bun",
+      "runtimeArgs": [
+        "--inspect=ws://localhost:6499/zd0iinb4l6"
+      ]
+    },
+    {
+      "type": "bun",
+      "internalConsoleOptions": "neverOpen",
+      "request": "attach",
+      "name": "Attach Bun to Shadow Hunters API Project",
+      "url": "ws://localhost:6498/g22qrulsbm5",
+      "stopOnEntry": false
+    },
+    {
+      "type": "bun",
+      "internalConsoleOptions": "neverOpen",
+      "request": "attach",
+      "name": "Attach Bun to Shadow Hunters Auth API Project",
+      "url": "ws://localhost:6499/zd0iinb4l6",
+      "stopOnEntry": false
+    },
+    {
+      "type": "bun",
+      "internalConsoleOptions": "neverOpen",
+      "request": "launch",
+      "name": "Debug current test file",
+      "program": "${file}",
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false,
+      "watchMode": false
+    }
+  ]
+}
