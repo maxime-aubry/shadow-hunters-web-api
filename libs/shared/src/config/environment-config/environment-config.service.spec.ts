@@ -26,8 +26,8 @@ describe('Tests for EnvironmentConfigService', () => {
     expect(messageQueueConfiguration).toBeDefined();
     expect(messageQueueConfiguration.getMessageQueueUser()).toEqual('user');
     expect(messageQueueConfiguration.getMessageQueuePass()).toEqual('password');
-    expect(messageQueueConfiguration.getMessageQueueHost()).toEqual('localhost:5672');
+    expect(messageQueueConfiguration.getMessageQueueHost()).toEqual('rabbitmq:5672');
     expect(messageQueueConfiguration.getMessageQueueAuthQueue()).toEqual('auth_queue');
-    expect(messageQueueConfiguration.getMessageQueueUrl()).toEqual('amqp://user:password@localhost:5672');
+    expect(messageQueueConfiguration.getMessageQueueUrl()).toEqual('amqp://user:password@rabbitmq:5672');
   });
 });

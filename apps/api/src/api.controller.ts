@@ -8,7 +8,6 @@ export class ApiController {
 
   @Get('getUser')
   public getUser(): Observable<any> {
-    console.log('api:getUser');
     return this.authService.send(
       {
         cmd: 'get-user',

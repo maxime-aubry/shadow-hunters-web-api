@@ -16,7 +16,9 @@
       "stopOnEntry": false,
       "noDebug": false,
       "runtime": "bun",
-      "runtimeArgs": ["--inspect=ws://localhost:6498/g22qrulsbm5"]
+      "runtimeArgs": [
+        "--inspect=ws://localhost:6498/g22qrulsbm5"
+      ]
     },
     {
       "type": "bun",
@@ -33,7 +35,9 @@
       "stopOnEntry": false,
       "noDebug": false,
       "runtime": "bun",
-      "runtimeArgs": ["--inspect=ws://localhost:6499/zd0iinb4l6"]
+      "runtimeArgs": [
+        "--inspect=ws://localhost:6499/zd0iinb4l6"
+      ]
     },
     {
       "type": "bun",
@@ -50,6 +54,16 @@
       "name": "Attach Bun to Shadow Hunters Auth API Project",
       "url": "ws://localhost:6499/zd0iinb4l6",
       "stopOnEntry": false
+    },
+    {
+      "type": "bun",
+      "internalConsoleOptions": "neverOpen",
+      "request": "launch",
+      "name": "Debug current test file",
+      "program": "${file}",
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false,
+      "watchMode": false
     }
   ]
 }
