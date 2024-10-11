@@ -8,9 +8,8 @@ export class AuthController {
   constructor(@Inject(MessageQueueService) private readonly messageQueueService: IMessageQueueService) {}
 
   @MessagePattern({ cmd: 'get-user' })
-  public getUser(data: any): string {
-    console.log('auth:getUser');
-    // this.messageQueueService.acknowledgeMessage(context);
+  public getUser(@Ctx() context: RmqContext): string {
+    this.messageQueueService.acknowledgeMessage(context);
     return 'test';
   }
 }
