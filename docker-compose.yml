@@ -22,7 +22,7 @@ services:
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
-    command: npm run start:dev auth
+    command: bun run start:dev:auth
   
   api:
     build:
@@ -38,4 +38,4 @@ services:
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
-    command: npm run start:dev api
+    command: bun run start:dev:api

@@ -1,34 +1,33 @@
-// import { beforeEach, describe, expect, it } from 'bun:test';
-// import { Test, type TestingModule } from '@nestjs/testing';
-// import type { IConfiguration } from './configuration.interface';
-// import type { IEnvironmentConfiguration } from './environment-config.interface';
-// import { EnvironmentConfigModule } from './environment-config.module';
-// import { EnvironmentConfigService } from './environment-config.service';
-// import type { IMessageQueueConfiguration } from './message-queue-config.interface';
+import { beforeEach, describe, expect, it } from 'bun:test';
+import { Test, type TestingModule } from '@nestjs/testing';
+import { EnvironmentConfigModule } from './environment-config.module';
+import { EnvironmentConfigService } from './environment-config.service';
+import { IEnvironmentConfiguration } from '@app/shared/interfaces/config/environment-config/environment-config.service.interface';
+import { IMessageQueueConfiguration } from '@app/shared/interfaces/config/environment-config/message-queue-config.service.interface';
 
-// describe('Tests for EnvironmentConfigService', () => {
-//   let configuration: IConfiguration;
+describe('Tests for EnvironmentConfigService', () => {
+  let configuration: IEnvironmentConfiguration;
 
-//   beforeEach(async () => {
-//     const module: TestingModule = await Test.createTestingModule({
-//       imports: [EnvironmentConfigModule],
-//       providers: [EnvironmentConfigService],
-//     }).compile();
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      imports: [EnvironmentConfigModule],
+      providers: [EnvironmentConfigService],
+    }).compile();
 
-//     configuration = module.get(EnvironmentConfigService);
-//   });
+    configuration = module.get(EnvironmentConfigService);
+  });
 
-//   it('EnvironmentConfigService should provide paramters from .env.test file', () => {
-//     const environmentConfigration: IEnvironmentConfiguration = configuration;
-//     expect(environmentConfigration).toBeDefined();
-//     expect(environmentConfigration.getEnvironment()).toEqual('test');
+  it('EnvironmentConfigService should provide paramters from .env.test file', () => {
+    const environmentConfigration: IEnvironmentConfiguration = configuration;
+    expect(environmentConfigration).toBeDefined();
+    expect(environmentConfigration.getEnvironment()).toEqual('test');
 
-//     const messageQueueConfiguration: IMessageQueueConfiguration = configuration;
-//     expect(messageQueueConfiguration).toBeDefined();
-//     expect(messageQueueConfiguration.getMessageQueueUser()).toEqual('user');
-//     expect(messageQueueConfiguration.getMessageQueuePass()).toEqual('password');
-//     expect(messageQueueConfiguration.getMessageQueueHost()).toEqual('localhost:5672');
-//     expect(messageQueueConfiguration.getMessageQueueAuthQueue()).toEqual('auth_queue');
-//     expect(messageQueueConfiguration.getMessageQueueUrl()).toEqual('amqp://user:password@localhost:5672');
-//   });
-// });
+    const messageQueueConfiguration: IMessageQueueConfiguration = configuration;
+    expect(messageQueueConfiguration).toBeDefined();
+    expect(messageQueueConfiguration.getMessageQueueUser()).toEqual('user');
+    expect(messageQueueConfiguration.getMessageQueuePass()).toEqual('password');
+    expect(messageQueueConfiguration.getMessageQueueHost()).toEqual('localhost:5672');
+    expect(messageQueueConfiguration.getMessageQueueAuthQueue()).toEqual('auth_queue');
+    expect(messageQueueConfiguration.getMessageQueueUrl()).toEqual('amqp://user:password@localhost:5672');
+  });
+});
